@@ -1,0 +1,25 @@
+<div class="container">
+  <a routerLink="/movimentacoes-new">Nova Movimentação</a>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Data Hora</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Tipo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of movimentacoes; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <!-- Adicionando as formatações nos campos Data Hora -->
+      <td>{{ item.dataHora | date: 'dd/MM/yyyy HH:mm:ss' }}</td> 
+      <td>{{ item.descricao }}</td>
+      <!-- //Aplicando estilo com base em uma condição em nossos registros e Adicionando as formatações no Valor -->
+      <td [ngStyle]="{'color':item.tipo === 'RECEITA' ? 'blue' : 'red'}">{{ item.valor | currency:'BRL' }}</td> 
+      <td>{{ item.tipo }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

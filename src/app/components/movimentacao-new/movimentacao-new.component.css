@@ -1,0 +1,16 @@
+.form-label{
+    margin-top: 0.5rem;
+}
+
+
+@media (min-width: 768px) {
+    .col-md-9 {    
+        width: 50%;
+    }
+
+    .d-md-flex {
+        display: flex!important;
+        margin-top: 1rem;
+    }
+}
+
