@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
-
-const baseUrl = 'http://localhost:8080/';
-//const baseUrl = 'https://dio-bankline-api-erasmo.herokuapp.com';
+const baseUrl = `${environment.API}`
 
 @Injectable({
   providedIn: 'root'
