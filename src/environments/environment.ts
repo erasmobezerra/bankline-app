@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API: 'https://dio-bankline-api-erasmo.herokuapp.com'
+  API: 'http://localhost:8080'
 };
 
 /*
