@@ -1,6 +1,17 @@
 <div class="container">
-  <a routerLink="/movimentacoes-new">Nova Movimentação</a>
-  <table class="table table-striped">
+  <div class="jumbotron">
+    <h1 class="display-6">Movimentações</h1>
+    <p class="lead-1">Listagem das movimentações por correntista</p>
+    <hr class="my-2">
+    <div class="input-group">
+      <select  id="iCorrentista" [(ngModel)]="correntista" placeholder="Informe uma descrição" class="form-select">
+        <option *ngFor="let c of correntistas" [ngValue]="c" > CPF: {{c.cpf}} - Correntista: {{c.nome}}</option>
+      </select>
+    <button class="btn btn-outline-secondary me-md-2 btn-sm" type="button"  (click)="listMovimentacoes()">Buscar</button>
+    <a class="btn btn-outline-primary btn-sm" routerLink="/movimentacoes-new">Nova Movimentação</a>
+    <a class="btn btn-outline-primary btn-sm" routerLink="/correntistas">Correntistas</a>    
+  </div>
+<table class="table table-striped">
     <thead>
     <tr>
       <th scope="col">#</th>
@@ -13,13 +24,12 @@
     <tbody>
     <tr *ngFor="let item of movimentacoes; index as i">
       <th scope="row">{{ i + 1 }}</th>
-      <!-- Adicionando as formatações nos campos Data Hora -->
-      <td>{{ item.dataHora | date: 'dd/MM/yyyy HH:mm:ss' }}</td> 
+      <td>{{ item.dataHora | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
       <td>{{ item.descricao }}</td>
-      <!-- //Aplicando estilo com base em uma condição em nossos registros e Adicionando as formatações no Valor -->
-      <td [ngStyle]="{'color':item.tipo === 'RECEITA' ? 'blue' : 'red'}">{{ item.valor | currency:'BRL' }}</td> 
+      <td [ngStyle]="{'color':item.tipo === 'RECEITA' ? 'blue' : 'red'}">{{ item.valor | currency:'BRL' }}</td>
       <td>{{ item.tipo }}</td>
     </tr>
     </tbody>
   </table>
+  </div>
 </div>
